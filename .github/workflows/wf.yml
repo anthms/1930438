@@ -1,0 +1,16 @@
+on: [ workflow_dispatch ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Failing
+        uses: docker://alpine:latest
+        with:
+          args: sh -c 'echo done'
+          
+      - name: Working
+        uses: docker://alpine:latest
+        with:
+          args: sh -c "echo done"
+          
