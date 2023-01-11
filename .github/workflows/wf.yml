@@ -9,11 +9,6 @@ jobs:
         with:
           args: sh -c "echo done"
           
-      - name: Failing
-        uses: docker://alpine:latest
-        with:
-          args: sh -c 'echo done'
-          
       - name: Explicit Command
         run: |
            /usr/bin/docker run --name alpinelatest_d8752e --label 290506 --workdir /github/workspace --rm -e "INPUT_ARGS" \
@@ -28,3 +23,8 @@ jobs:
            -e CI=true -v "/var/run/docker.sock":"/var/run/docker.sock" -v "/home/runner/work/_temp/_github_home":"/github/home" \
            -v "/home/runner/work/_temp/_github_workflow":"/github/workflow" -v "/home/runner/work/_temp/_runner_file_commands":"/github/file_commands" \
            -v "/home/runner/work/1930438/1930438":"/github/workspace" alpine:latest sh -c 'echo done'
+          
+      - name: Failing
+        uses: docker://alpine:latest
+        with:
+          args: sh -c 'echo done'
