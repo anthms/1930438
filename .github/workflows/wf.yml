@@ -12,6 +12,6 @@ jobs:
       - name: Failing
         uses: docker://alpine:latest
         with:
-          args: ${{ env.ARG }}
+          args: sh -c ${{ env.ARG }}
         env:
-          ARG: sh -c 'echo done'
+          ARG: 'echo done'
