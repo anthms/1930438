@@ -12,4 +12,4 @@ jobs:
       - name: Failing
         uses: docker://alpine:latest
         with:
-          args: "sh -c 'echo done'"
+          args: sh -c 'ls'
